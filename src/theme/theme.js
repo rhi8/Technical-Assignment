@@ -2,6 +2,7 @@ import { createTheme } from "@mui/material/styles";
 import "@fontsource/raleway";
 import { indigo } from "@mui/material/colors";
 import "@fontsource/pacifico";
+import '@fontsource/roboto';
 const primaryBlue = indigo[900];
 
 const breakpoints = {
@@ -53,9 +54,10 @@ const theme = createTheme({
     marginTop: "10rem",
   },
   customSub: {
-    fontSize: "1.25rem",
-    fontWeight: 300,
+    fontSize: "1.30rem",
+    fontWeight: 700,
     color: "white",
+    fontFamily:"Roboto",
   },
   specialText: {
     fontFamily: "Pacifico",

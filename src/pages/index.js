@@ -22,8 +22,8 @@ export default function Home() {
           My Personal Blog
         </Typography>
       </Container>
-      <Container maxWidth= {"xl"}>
-          <Grid container spacing={2} sx={{
+      <Container maxWidth= {"xl"} disableGutters>
+          <Grid container  sx={{
           
             marginTop:"25px"
           }}>
@@ -32,6 +32,7 @@ export default function Home() {
              }}> 
                 <BlogCard />
              </Grid>
+            
           </Grid>
       </Container>
     </Fragment>
