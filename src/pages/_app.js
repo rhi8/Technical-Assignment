@@ -4,6 +4,7 @@ import { Fragment } from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import theme from "@/theme/theme";
+import Layout from "@/components/Layout";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -17,7 +18,10 @@ export default function App({
       <CacheProvider value={emotionCache}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <Component {...pageProps} />;
+          <Layout>
+          <Component {...pageProps} />
+          </Layout>
+         
         </ThemeProvider>
       </CacheProvider>
     </Fragment>
