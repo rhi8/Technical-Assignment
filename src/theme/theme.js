@@ -4,7 +4,22 @@ import { indigo } from "@mui/material/colors";
 import "@fontsource/pacifico";
 const primaryBlue = indigo[900];
 
+const breakpoints = {
+  values: {
+      xs: 0,
+      sm: 425,
+      md: 760,
+      lg: 1030,
+      xl: 1430,
+  },
+};
+
+
 const theme = createTheme({
+
+  breakpoints: {
+    ...breakpoints,
+},
   palette: {
     primary: {
       main: primaryBlue,

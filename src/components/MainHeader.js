@@ -67,7 +67,7 @@ const MainHeader = (props) => {
                       color: "white",
                     })}
                   >
-                    Simple Web Solutions
+                    Fintrellis
                   </Typography>
                 </Button>
               </Grid>
