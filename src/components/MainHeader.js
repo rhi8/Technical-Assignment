@@ -35,10 +35,8 @@ const MainHeader = (props) => {
 
   const navRoutes = [
     { name: "Home", link: "/" },
-    { name: "Services", link: "/services" },
-    { name: "Customer Focus", link: "/customerfocus" },
-    { name: "About Us", link: "/about" },
-    { name: "Contact Us", link: "/contactus" },
+    { name: "Add Blog", link: "/addblog" },
+    
   ];
 
   return (
