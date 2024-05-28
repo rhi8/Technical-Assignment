@@ -7,7 +7,7 @@ import { connectDatabase, insertDocument,getAllDocuments } from "@/helpers/db-ut
 
 async function handler(req, res) {
     if (req.method === 'GET') {
-      const blog = req.body.blog;
+     
   
      
   

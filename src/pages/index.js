@@ -3,10 +3,30 @@ import { Inter } from "next/font/google";
 import { Fragment } from "react";
 import Grid from '@mui/material/Grid';
 import BlogCard from "@/components/blog/BlogCard";
+import useSWR from 'swr';
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+
+
+  const { data, error, isLoading } = useSWR(
+    '/api/getblog',
+    (url) => fetch(url).then(res => res.json())
+  );
+
+
+  if (error) {
+    return <p>Failed to load.</p>;
+  }
+
+  if (isLoading ) {
+    return <p>Loading...</p>;
+  }
+
+  console.log(data)
+
+
   return (
     <Fragment>
       <Container>
@@ -38,3 +58,30 @@ export default function Home() {
     </Fragment>
   );
 }
+
+
+
+/* export async function getStaticProps() {
+  
+
+  fetch('/api/getblog', {
+    method: 'GET',
+    body: JSON.stringify(),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) =>{ 
+      console.log(data)
+      return {
+        props: {
+          blogs: data,
+        },
+        revalidate: 1800,
+      };
+    });
+
+
+  
+} */
