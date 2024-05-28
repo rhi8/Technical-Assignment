@@ -10,19 +10,12 @@ function Layout(props) {
     <Fragment>
       <MainHeader />
       <Box sx={{ mt: { xs: "75px", sm: "62px" } }}></Box>
-      <Paper elevation={0} sx={(theme) => ({ ...theme.glassMorpBg, height:"100vh" })}>
+      <Paper elevation={0} sx={(theme) => ({ ...theme.glassMorpBg, minHeight:"100vh", maxHeight:"100%"})}>
         <main>
           {props.children}
         </main>
       </Paper>
-       <Grid container sx={theme => ({ bgcolor:"primary.dark" })}>
-        <Grid item xs={12} >
-            <Typography sx={theme =>({textAlign: "center", ...theme.typography.ralewayTypo,  color:"white"})}>Simple Web Solutions </Typography>
-        </Grid>
-         <Grid item xs={12} >
-            <Typography  sx={theme =>({textAlign: "center", ...theme.typography.ralewayTypo,  color:"white"})}>Bringing your ideas to the web</Typography>
-        </Grid> 
-      </Grid> 
+  
     </Fragment>
   );
 }

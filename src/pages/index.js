@@ -24,7 +24,7 @@ export default function Home() {
     return <p>Loading...</p>;
   }
 
-  console.log(data)
+  console.log(data.blogs[0])
 
 
   return (
@@ -43,15 +43,20 @@ export default function Home() {
         </Typography>
       </Container>
       <Container maxWidth= {"xl"} disableGutters>
-          <Grid container  sx={{
+          <Grid container spacing={2} sx={{
           
             marginTop:"25px"
           }}>
-             <Grid item xs={12} md={4} sx={{
+            {
+              data.blogs.map((blog)=>(
+                <Grid item xs={12} md={4} sx={{
              
-             }}> 
-                <BlogCard />
-             </Grid>
+                }}> 
+                   <BlogCard id={blog._id} title={blog.blog.title} description={blog.blog.description} />
+                </Grid>
+              ))
+            }
+            
             
           </Grid>
       </Container>

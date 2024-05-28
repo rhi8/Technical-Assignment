@@ -26,7 +26,7 @@ const TruncatedText = ({ text, maxLength = 100, sx }) => {
   );
 };
 
-const BlogCard = () => {
+const BlogCard = ({title, description, id}) => {
   return (
     <Card>
       <Typography
@@ -35,15 +35,12 @@ const BlogCard = () => {
           ...theme.customSub,
         })}
       >
-        ssssssssssssssssss
+        {title}
       </Typography>
-      <TruncatedText
+       <TruncatedText
         sx={{ color: "black" }}
-        text="
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer luctus eros eu massa facilisis bibendum. Aliquam dapibus volutpat congue. Nam consequat velit libero, sed pharetra ligula ultrices nec. Integer faucibus auctor felis ac dapibus. Morbi sed turpis dictum, maximus diam quis, ultricies ex. Pellentesque faucibus sit amet mi et pellentesque. Etiam feugiat ultricies lacus, vel ullamcorper massa fermentum ut. In dignissim volutpat purus et consectetur. Praesent pellentesque, diam et rutrum tempor, turpis lectus ornare ligula, in rhoncus neque augue nec metus. Ut arcu massa, aliquam imperdiet massa non, malesuada aliquam leo. Ut tortor ex, feugiat et rhoncus pulvinar, sollicitudin eget ligula. Vestibulum felis elit, ornare a porttitor quis, cursus a ex. Integer faucibus et arcu vel malesuada. Maecenas vestibulum leo non nisi hendrerit vulputate.
-
-Proin at lorem ut nunc pulvinar rhoncus. In hac habitasse platea dictumst. Curabitur convallis molestie metus, at sodales ex porttitor ut. Pellentesque odio mauris, sagittis viverra mauris eu, semper pellentesque mi. Nullam et nunc vel felis fermentum varius sed in sem. Nam pharetra ultricies est, id egestas massa pellentesque at."
-      />
+        text={description}
+      /> 
       <Stack direction="row" spacing={2}>
         <Button variant="contained" endIcon={<SendIcon />}>
           Read More
