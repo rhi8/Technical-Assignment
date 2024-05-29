@@ -14,41 +14,29 @@ const Card = styled(Box)(({ theme }) => ({
   justifyContent: "space-around",
 }));
 
-const TruncatedTypography = styled(Box)(({ theme }) => ({
+/* const TruncatedTypography = styled(Typography)(({ theme }) => ({
   ...theme.customSub,
-}));
+ 
+  
+})); */
 
 const TruncatedText = ({ text, maxLength = 100, sx }) => {
   const truncatedText =
     text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
 
   return (
-    <TruncatedTypography sx={{ ...sx }}>{truncatedText}</TruncatedTypography>
+    <Typography  textAlign="center"
+    variant="body1"
+    sx={(theme)=>({...theme.customSub , ...sx,  })}>{truncatedText}</Typography>
   );
 };
 
-const BlogCard = ({title, description, id}) => {
+const BlogCard = ({title, description, id,deleteBlogHandler}) => {
 
 
-  const deleteBlogHandler = (blogId) => {
-    
-
-
-    fetch('/api/deleteblog', {
-        method: 'POST',
-        body: JSON.stringify({ blogId: blogId }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-        .then((response) => response.json())
-        .then((data) => console.log(data));
-
-
-      
-  };
+  
   return (
-    <Card>
+    <Card >
       <Typography
         component="h1"
         sx={(theme) => ({
@@ -58,7 +46,7 @@ const BlogCard = ({title, description, id}) => {
         {title}
       </Typography>
        <TruncatedText
-        sx={{ color: "black" }}
+        sx={{ color: "black",  }}
         text={description}
       /> 
       <Stack direction="row" spacing={2}>
