@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SendIcon from "@mui/icons-material/Send";
 import Stack from "@mui/material/Stack";
+import { NextLinkComposed } from "@/Link";
 
 const Card = styled(Box)(({ theme }) => ({
   ...theme.glassMorp,
@@ -42,7 +43,10 @@ const BlogCard = ({title, description, id}) => {
         text={description}
       /> 
       <Stack direction="row" spacing={2}>
-        <Button variant="contained" endIcon={<SendIcon />}>
+        <Button variant="contained" endIcon={<SendIcon />}
+          component={NextLinkComposed}
+          to={`/singleblog/${id}`}
+        >
           Read More
         </Button>
         <Button variant="contained" endIcon={<DeleteIcon />}>

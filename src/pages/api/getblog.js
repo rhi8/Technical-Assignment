@@ -23,6 +23,7 @@ async function handler(req, res) {
       try {
         const documents = await getAllDocuments(client, 'newblogs', { _id: -1 });
         res.status(200).json({ blogs: documents });
+        client.close();
       } catch (error) {
         res.status(500).json({ message: 'Getting comments failed.' });
       }

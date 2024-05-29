@@ -24,7 +24,7 @@ export default function Home() {
     return <p>Loading...</p>;
   }
 
-  console.log(data.blogs[0])
+
 
 
   return (
@@ -49,8 +49,8 @@ export default function Home() {
           }}>
             {
               data.blogs.map((blog)=>(
-                <Grid item xs={12} md={4} sx={{
-             
+                <Grid item xs={12} md={4} key={blog._id} sx={{
+                 
                 }}> 
                    <BlogCard id={blog._id} title={blog.blog.title} description={blog.blog.description} />
                 </Grid>
