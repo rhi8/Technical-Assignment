@@ -36,3 +36,16 @@ export async function getSingleDocuments(client, collection, eventId) {
 
   return documents;
 }
+
+
+export async function deleteDocuments(client, collection, eventId) {
+  const db = client.db();
+
+  console.log(eventId, "this is the delete id");
+
+  const documents = await db
+    .collection(collection)
+    .deleteOne({ _id: new ObjectId(eventId) })
+
+  return documents;
+}

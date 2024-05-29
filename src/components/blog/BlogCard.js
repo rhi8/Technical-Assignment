@@ -28,6 +28,25 @@ const TruncatedText = ({ text, maxLength = 100, sx }) => {
 };
 
 const BlogCard = ({title, description, id}) => {
+
+
+  const deleteBlogHandler = (blogId) => {
+    
+
+
+    fetch('/api/deleteblog', {
+        method: 'POST',
+        body: JSON.stringify({ blogId: blogId }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+
+
+      
+  };
   return (
     <Card>
       <Typography
@@ -49,7 +68,7 @@ const BlogCard = ({title, description, id}) => {
         >
           Read More
         </Button>
-        <Button variant="contained" endIcon={<DeleteIcon />}>
+        <Button variant="contained" endIcon={<DeleteIcon />} onClick={deleteBlogHandler.bind(null, id)}>
           Delete
         </Button>
       </Stack>

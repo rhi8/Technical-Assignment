@@ -4,7 +4,7 @@ import { Fragment } from "react";
 import Grid from '@mui/material/Grid';
 import BlogCard from "@/components/blog/BlogCard";
 import useSWR from 'swr';
-
+import Loading from "@/components/loading";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -21,8 +21,11 @@ export default function Home() {
   }
 
   if (isLoading ) {
-    return <p>Loading...</p>;
+    return <Loading />
   }
+
+
+  
 
 
 
