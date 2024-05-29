@@ -45,6 +45,7 @@ export default function Home() {
   console.log(blogdata.blogs);
 
   const deleteBlogHandler = (blogId) => {
+    setLoading(true);
     fetch("/api/deleteblog", {
       method: "POST",
       body: JSON.stringify({ blogId: blogId }),
@@ -53,21 +54,25 @@ export default function Home() {
       },
     })
       .then((response) => response.json())
-      .then((data) => console.log(data));
+      .then((data) => 
+       { console.log(data)
+       
+        fetch("/api/getblog", {
+          method: "POST",
+          body: JSON.stringify(),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            setData(data);
+            setLoading(false);
+          });
 
-      setLoading(true);
-      fetch("/api/getblog", {
-        method: "POST",
-        body: JSON.stringify(),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          setData(data);
-          setLoading(false);
-        });
+       });
+
+     
   };
 
   return (
