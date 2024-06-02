@@ -1,8 +1,13 @@
 import { Typography, Box } from "@mui/material";
 import BlogForm from "./blogform";
+import Alert from "@mui/material/Alert";
+import CheckIcon from "@mui/icons-material/Check";
+import { useEffect, useState } from "react";
 
 const AddBlog = () => {
-const  INITIAL_VALUES = {
+  const [showNotification, setShowNotification] = useState(false);
+
+  const INITIAL_VALUES = {
     title: "",
     description: "",
   };
@@ -10,20 +15,28 @@ const  INITIAL_VALUES = {
   const handleFormSubmit = (values) => {
     console.log(values);
 
-
-    fetch('/api/addnewblog', {
-        method: 'POST',
-        body: JSON.stringify({ blog: values }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-        .then((response) => response.json())
-        .then((data) => console.log(data));
-
-
-      
+    fetch("/api/addnewblog", {
+      method: "POST",
+      body: JSON.stringify({ blog: values }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setShowNotification(true);
+      });
   };
+
+  useEffect(() => {
+    let timer;
+    if (showNotification) {
+      timer = setTimeout(() => {
+        setShowNotification(false);
+      }, 3000); // Hide notification after 3 seconds
+    }
+    return () => clearTimeout(timer);
+  }, [showNotification]);
 
   return (
     <Box py={4}>
@@ -43,6 +56,11 @@ const  INITIAL_VALUES = {
         initialValues={INITIAL_VALUES}
         handleFormSubmit={handleFormSubmit}
       />
+      {showNotification && (
+        <Alert icon={<CheckIcon fontSize="inherit" />} severity="success">
+          Here is a gentle confirmation that your blog was successful added.
+        </Alert>
+      )}
     </Box>
   );
 };

@@ -114,27 +114,4 @@ export default function Home() {
   );
 }
 
-/* export async function getStaticProps() {
-  
 
-  fetch('/api/getblog', {
-    method: 'GET',
-    body: JSON.stringify(),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
-    .then((response) => response.json())
-    .then((data) =>{ 
-      console.log(data)
-      return {
-        props: {
-          blogs: data,
-        },
-        revalidate: 1800,
-      };
-    });
-
-
-  
-} */
